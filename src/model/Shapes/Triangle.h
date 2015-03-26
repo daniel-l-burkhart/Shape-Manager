@@ -26,7 +26,8 @@ private:
 
 public:
 
-
+	double ComputeArea();
+	double ComputePerimeter();
 
 	Triangle();
 	Triangle(int xLocation, int yLocation, const string& color);

@@ -6,6 +6,10 @@
  */
 
 #include "Shape.h"
+#include <ostream>
+#include <iostream>
+
+using std::endl;
 
 namespace model {
 
@@ -18,7 +22,8 @@ Shape::Shape() {
 
 }
 
-Shape::Shape(const string& shapeType, int xLocation, int yLocation, const string& color) {
+Shape::Shape(const string& shapeType, int xLocation, int yLocation,
+		const string& color) {
 
 	this->shapeType = shapeType;
 	this->xLocation = xLocation;
@@ -61,8 +66,20 @@ int Shape::getYLocation() const {
 	return yLocation;
 }
 
+string Shape::Print() {
+
+/*	return "Shape: " << this->shapeType << endl << "Position: "
+			<< this->xLocation << ", " << this->yLocation << endl << "Area: "
+			<< setPrecision(2) << this->area << endl << "Perimeter: "
+			<< setPrecision(2) << this->perimeter + endl;*/
+
+	return "";
+
+}
+
 Shape::~Shape() {
-	// TODO Auto-generated destructor stub
+// TODO Auto-generated destructor stub
 }
 
 } /* namespace model */
+

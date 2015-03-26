@@ -23,29 +23,29 @@ Hexagon::Hexagon() {
 	this->length = 0;
 }
 
-Hexagon::Hexagon(const string& color, int x, int y) :
+Hexagon::Hexagon(int x, int y, const string& color) :
 		Shape("Hexagon", x, y, color) {
 
 	int length = rand() % LENGTH_MAX + LENGTH_MIN;
 
 	this->length = length;
 
-	Shape::setPerimeter(this->Perimeter());
-	Shape::setArea(this->Area());
+	Shape::setArea(this->ComputeArea());
+	Shape::setPerimeter(this->ComputePerimeter());
 }
 
-double Hexagon::Perimeter() {
-	return SIDES_OF_HEXAGON * this->length;
+Hexagon::~Hexagon() {
+	// TODO Auto-generated destructor stub
 }
 
-double Hexagon::Area() {
+double Hexagon::ComputeArea() {
 	double area = (AREA_LITERAL * sqrt(AREA_LITERAL) * this->length
 			* this->length) / 2;
 	return area;
 }
 
-Hexagon::~Hexagon() {
-	// TODO Auto-generated destructor stub
+double Hexagon::ComputePerimeter() {
+	return SIDES_OF_HEXAGON * this->length;
 }
 
 } /* namespace shapes */

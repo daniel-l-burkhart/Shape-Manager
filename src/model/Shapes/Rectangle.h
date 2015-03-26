@@ -23,14 +23,14 @@ private:
 int width;
 int height;
 
-double Perimeter();
-double Area();
-
 public:
 
+	double ComputeArea();
+	double ComputePerimeter();
 
 	Rectangle();
 	Rectangle(int xLocation, int yLocation, const string& color);
+	Rectangle(const string& ID, int xLocation, int yLocation, const string& color);
 	virtual ~Rectangle();
 };
 

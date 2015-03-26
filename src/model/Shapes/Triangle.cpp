@@ -32,16 +32,17 @@ Triangle::Triangle(int xLocation, int yLocation, const string& color) :
 	this->base = base;
 	this->height = height;
 
-	Shape::setArea(this->Area());
-	Shape::setPerimeter(this->Perimeter());
+	Shape::setArea(this->ComputeArea());
+	Shape::setPerimeter(this->ComputePerimeter());
 }
 
-double Triangle::Perimeter() {
-	return this->base + this->height;
-}
 
-double Triangle::Area() {
+double Triangle::ComputeArea() {
 	return ((1 / 2) * this->base * this->height);
+}
+
+double Triangle::ComputePerimeter() {
+	return this->base + this->height;
 }
 
 Triangle::~Triangle() {

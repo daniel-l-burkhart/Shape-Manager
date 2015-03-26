@@ -9,6 +9,8 @@
 #include <cstdlib>
 
 #include "Shape.h"
+
+#include "Rectangle.h"
 namespace model {
 
 const int LENGTH_MAX = 36;
@@ -19,24 +21,23 @@ Square::Square() {
 }
 
 Square::Square(int xLocation, int yLocation, const string& color) :
-		Shape("Square", xLocation, yLocation, color) {
+		Rectangle("Square", xLocation, yLocation, color) {
 
 	int length = rand() % LENGTH_MAX + LENGTH_MIN;
 
 	this->length = length;
 
-	Shape::setArea(this->Area());
-	Shape::setPerimeter(this->Perimeter());
+	Shape::setArea(this->ComputeArea());
+	Shape::setPerimeter(this->ComputePerimeter());
 }
 
-double Square::Perimeter() {
 
-	return (4 * this->length);
-}
-
-double Square::Area() {
-
+double Square::ComputeArea() {
 	return (this->length * this->length);
+}
+
+double Square::ComputePerimeter() {
+	return (4 * this->length);
 }
 
 Square::~Square() {

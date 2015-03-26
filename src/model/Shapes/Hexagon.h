@@ -15,22 +15,22 @@ using namespace std;
 
 namespace model {
 
-class Hexagon: public Shape{
+class Hexagon: public Shape {
 
 private:
 
-int length;
-
-double Perimeter();
-double Area();
+	int length;
 
 public:
 
 	Hexagon();
 
-	Hexagon(const string& color, int x, int y);
+	Hexagon(int x, int y, const string& color);
 
 	virtual ~Hexagon();
+
+	double ComputeArea();
+	double ComputePerimeter();
 };
 
 } /* namespace shapes */

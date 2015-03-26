@@ -11,11 +11,13 @@
 #include <string>
 
 #include "Shape.h"
+
+#include "Rectangle.h"
 using namespace std;
 
 namespace model {
 
-class Square : public Shape {
+class Square : public Rectangle {
 
 private:
 
@@ -25,7 +27,8 @@ private:
 
 public:
 
-
+	double ComputeArea();
+	double ComputePerimeter();
 
 	Square();
 	Square(int xLocation, int yLocation, const string& color);

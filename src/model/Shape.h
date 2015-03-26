@@ -9,6 +9,7 @@
 #define MODEL_SHAPE_H_
 
 #include <string>
+
 using namespace std;
 
 namespace model {
@@ -36,6 +37,11 @@ public:
 	const string& getShapeType() const;
 	int getXLocation() const;
 	int getYLocation() const;
+
+	string Print();
+
+	virtual double ComputeArea() = 0;
+	virtual double ComputePerimeter() = 0;
 };
 
 } /* namespace model */

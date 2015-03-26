@@ -30,21 +30,18 @@ Circle::Circle(int xLocation, int yLocation, const string& color) :
 
 	this->diameter = diameter;
 
-	Shape::setPerimeter(this->Perimeter());
-
-	Shape::setArea(this->Area());
+	Shape::setArea(this->ComputeArea());
+	Shape::setPerimeter(this->ComputePerimeter());
 }
 
-double Circle::Perimeter() {
-	return (M_PI * this->diameter);
-
-}
-
-double Circle::Area() {
+double Circle::ComputeArea() {
 	double radius = this->diameter / 2;
 
 	return (M_PI * radius * radius);
+}
 
+double Circle::ComputePerimeter() {
+	return (M_PI * this->diameter);
 }
 
 Circle::~Circle() {

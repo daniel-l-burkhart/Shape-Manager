@@ -35,18 +35,25 @@ Rectangle::Rectangle(int xLocation, int yLocation, const string& color) :
 	this->width = width;
 	this->height = height;
 
-	Shape::setArea(this->Area());
-	Shape::setPerimeter(this->Perimeter());
+	Shape::setArea(this->ComputeArea());
+	Shape::setPerimeter(this->ComputePerimeter());
 
 }
 
-double Rectangle::Perimeter() {
+Rectangle::Rectangle(const string& ID, int xLocation, int yLocation,
+		const string& color) :
+		Shape(ID, xLocation, yLocation, color) {
 
-	return (PERIMETER_LITERAL * (this->width + this->height));
+	this->height = 0;
+	this->width = 0;
 }
 
-double Rectangle::Area() {
+double Rectangle::ComputeArea() {
 	return (this->width * this->height);
+}
+
+double Rectangle::ComputePerimeter() {
+	return (PERIMETER_LITERAL * (this->width + this->height));
 }
 
 Rectangle::~Rectangle() {
@@ -54,3 +61,4 @@ Rectangle::~Rectangle() {
 }
 
 } /* namespace shapes */
+

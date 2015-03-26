@@ -22,12 +22,10 @@ class Circle: public Shape {
 private:
 	int diameter;
 
-	double Perimeter();
-	double Area();
-
 public:
 
-
+	double ComputeArea();
+	double ComputePerimeter();
 
 	Circle();
 
