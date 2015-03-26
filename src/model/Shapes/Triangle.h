@@ -9,23 +9,24 @@
 #define MODEL_SHAPES_TRIANGLE_H_
 
 #include <string>
+
+#include "Shape.h"
 using namespace std;
 
-namespace shapes {
+namespace model {
 
-class Triangle: model::Shape {
+class Triangle: public Shape {
 
 private:
 	int base;
 	int height;
 
+	double Perimeter();
+	double Area();
+
 public:
 
-	const int BASE_MAX = 31;
-	const int BASE_MIN = 19;
 
-	const int HEIGHT_MAX = 31;
-	const int HEIGHT_MIN = 19;
 
 	Triangle();
 	Triangle(int xLocation, int yLocation, const string& color);

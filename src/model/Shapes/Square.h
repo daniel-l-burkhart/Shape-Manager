@@ -9,18 +9,23 @@
 #define MODEL_SHAPES_SQUARE_H_
 
 #include <string>
+
+#include "Shape.h"
 using namespace std;
 
-namespace shapes {
+namespace model {
 
-class Square : public model::Shape {
+class Square : public Shape {
 
 private:
+
 	int length;
+	double Perimeter();
+	double Area();
+
 public:
 
-	const int LENGTH_MAX = 36;
-	const int LENGTH_MIN = 14;
+
 
 	Square();
 	Square(int xLocation, int yLocation, const string& color);

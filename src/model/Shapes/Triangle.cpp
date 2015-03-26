@@ -6,8 +6,16 @@
  */
 
 #include "Triangle.h"
+#include <cstdlib>
 
-namespace shapes {
+#include "Shape.h"
+namespace model {
+
+const int BASE_MAX = 31;
+const int BASE_MIN = 19;
+
+const int HEIGHT_MAX = 31;
+const int HEIGHT_MIN = 19;
 
 Triangle::Triangle() {
 
@@ -23,6 +31,17 @@ Triangle::Triangle(int xLocation, int yLocation, const string& color) :
 
 	this->base = base;
 	this->height = height;
+
+	Shape::setArea(this->Area());
+	Shape::setPerimeter(this->Perimeter());
+}
+
+double Triangle::Perimeter() {
+	return this->base + this->height;
+}
+
+double Triangle::Area() {
+	return ((1 / 2) * this->base * this->height);
 }
 
 Triangle::~Triangle() {

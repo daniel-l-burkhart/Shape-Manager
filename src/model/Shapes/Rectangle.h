@@ -9,23 +9,25 @@
 #define MODEL_SHAPES_RECTANGLE_H_
 
 #include <string>
+
+#include "Shape.h"
 using namespace std;
 
-namespace shapes {
 
-class Rectangle : public model::Shape{
+namespace model {
+
+class Rectangle : public Shape{
 
 private:
 
 int width;
 int height;
 
+double Perimeter();
+double Area();
+
 public:
 
-	const int HEIGHT_MAX = 21;
-	const int WIDTH_MAX = 21;
-	const int WIDTH_MIN = 9;
-	const int HEIGHT_MIN = 9;
 
 	Rectangle();
 	Rectangle(int xLocation, int yLocation, const string& color);

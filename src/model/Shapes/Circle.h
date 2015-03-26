@@ -8,20 +8,26 @@
 #ifndef MODEL_SHAPES_CIRCLE_H_
 #define MODEL_SHAPES_CIRCLE_H_
 
+
 #include <string>
+
+#include "Shape.h"
 using namespace std;
 
-namespace shapes {
 
-class Circle: public model::Shape {
+namespace model {
+
+class Circle: public Shape {
 
 private:
 	int diameter;
 
+	double Perimeter();
+	double Area();
+
 public:
 
-	const int DIAMETER_MAX = 26;
-	const int DIAMETER_MIN = 14;
+
 
 	Circle();
 

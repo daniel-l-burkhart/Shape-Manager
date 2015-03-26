@@ -9,20 +9,22 @@
 #define MODEL_SHAPES_HEXAGON_H_
 
 #include<string>
+
+#include "Shape.h"
 using namespace std;
 
-namespace shapes {
+namespace model {
 
-class Hexagon: public model::Shape{
+class Hexagon: public Shape{
 
 private:
 
 int length;
 
-public:
+double Perimeter();
+double Area();
 
-const int LENGTH_MAX = 16;
-const int LENGTH_MIN = 4;
+public:
 
 	Hexagon();
 

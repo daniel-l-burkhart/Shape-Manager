@@ -29,6 +29,38 @@ Shape::Shape(const string& shapeType, int xLocation, int yLocation, const string
 	this->perimeter = 0;
 }
 
+double Shape::getArea() const {
+	return area;
+}
+
+void Shape::setArea(double area) {
+	this->area = area;
+}
+
+const string& Shape::getColor() const {
+	return color;
+}
+
+double Shape::getPerimeter() const {
+	return perimeter;
+}
+
+void Shape::setPerimeter(double perimeter) {
+	this->perimeter = perimeter;
+}
+
+const string& Shape::getShapeType() const {
+	return shapeType;
+}
+
+int Shape::getXLocation() const {
+	return xLocation;
+}
+
+int Shape::getYLocation() const {
+	return yLocation;
+}
+
 Shape::~Shape() {
 	// TODO Auto-generated destructor stub
 }

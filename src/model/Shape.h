@@ -28,6 +28,14 @@ public:
 	Shape();
 	Shape(const string& shapeType, int xLocation, int yLocation, const string& color);
 	virtual ~Shape();
+	double getArea() const;
+	void setArea(double area);
+	const string& getColor() const;
+	double getPerimeter() const;
+	void setPerimeter(double perimeter);
+	const string& getShapeType() const;
+	int getXLocation() const;
+	int getYLocation() const;
 };
 
 } /* namespace model */
