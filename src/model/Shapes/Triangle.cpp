@@ -36,13 +36,29 @@ Triangle::Triangle(int xLocation, int yLocation, const string& color) :
 	Shape::setPerimeter(this->ComputePerimeter());
 }
 
-
 double Triangle::ComputeArea() {
-	return ((1 / 2) * this->base * this->height);
+	double triangle = this->base * this->height;
+	return (triangle / 2);
+
 }
 
 double Triangle::ComputePerimeter() {
 	return this->base + this->height;
+}
+
+string Triangle::Print() {
+	string resultString = Shape::Print();
+
+	string base = "Base: " + this->base;
+	string endLine = "\r\n";
+	string height = "Height: " + this->height;
+
+	resultString += base;
+	resultString += endLine;
+	resultString += height;
+	resultString += endLine;
+
+	return resultString;
 }
 
 Triangle::~Triangle() {

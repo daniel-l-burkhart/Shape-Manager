@@ -38,7 +38,7 @@ public:
 	int getXLocation() const;
 	int getYLocation() const;
 
-	string Print();
+	virtual string Print();
 
 	virtual double ComputeArea() = 0;
 	virtual double ComputePerimeter() = 0;

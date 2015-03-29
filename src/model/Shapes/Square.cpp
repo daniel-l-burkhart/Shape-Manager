@@ -31,7 +31,6 @@ Square::Square(int xLocation, int yLocation, const string& color) :
 	Shape::setPerimeter(this->ComputePerimeter());
 }
 
-
 double Square::ComputeArea() {
 	return (this->length * this->length);
 }
@@ -42,6 +41,12 @@ double Square::ComputePerimeter() {
 
 Square::~Square() {
 	// TODO Auto-generated destructor stub
+}
+
+string Square::Print() {
+	string squareString = Shape::Print();
+	squareString += ("Length: " + this->length + std::string("\r\n"));
+	return squareString;
 }
 
 } /* namespace shapes */

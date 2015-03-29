@@ -6,8 +6,12 @@
  */
 
 #include "Shape.h"
+#include <cstdlib>
+#include <iosfwd>
 #include <ostream>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 using std::endl;
 
@@ -67,13 +71,30 @@ int Shape::getYLocation() const {
 }
 
 string Shape::Print() {
+	string shapeString;
+	string shapeType = "Shape: " + this->shapeType;
+	string xPosition = "Position: " + this->getXLocation();
+	string color = ("Color: " + this->color);
+	string yPosition = ", " + this->getYLocation();
 
-/*	return "Shape: " << this->shapeType << endl << "Position: "
-			<< this->xLocation << ", " << this->yLocation << endl << "Area: "
-			<< setPrecision(2) << this->area << endl << "Perimeter: "
-			<< setPrecision(2) << this->perimeter + endl;*/
+	std::ostringstream strs;
+	strs << this->perimeter;
+	std::string str = strs.str();
 
-	return "";
+	string Perimeter = ("Perimeter: " + str);
+
+	std::ostringstream stream;
+	stream << this->area;
+	std::string areaString = stream.str();
+
+	string Area = ("Area: " + areaString);
+
+	string endLine = "\r\n";
+
+	shapeString += (shapeType + endLine + xPosition + yPosition + endLine
+			+ color + endLine + Area + endLine + Perimeter + endLine);
+
+	return shapeString;
 
 }
 

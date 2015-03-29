@@ -44,6 +44,14 @@ double Hexagon::ComputeArea() {
 	return area;
 }
 
+string Hexagon::Print() {
+	string hexagonString = Shape::Print();
+
+	string length = "Length: " + this->length;
+	hexagonString += (length + "\r\n");
+	return hexagonString;
+}
+
 double Hexagon::ComputePerimeter() {
 	return SIDES_OF_HEXAGON * this->length;
 }

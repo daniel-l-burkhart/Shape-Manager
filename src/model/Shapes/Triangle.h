@@ -33,6 +33,8 @@ public:
 	Triangle(int xLocation, int yLocation, const string& color);
 
 	virtual ~Triangle();
+
+	string Print();
 };
 
 } /* namespace shapes */

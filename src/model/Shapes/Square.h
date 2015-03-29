@@ -22,8 +22,6 @@ class Square : public Rectangle {
 private:
 
 	int length;
-	double Perimeter();
-	double Area();
 
 public:
 
@@ -33,6 +31,8 @@ public:
 	Square();
 	Square(int xLocation, int yLocation, const string& color);
 	virtual ~Square();
+
+	string Print();
 };
 
 } /* namespace shapes */

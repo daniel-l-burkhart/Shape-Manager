@@ -60,5 +60,17 @@ Rectangle::~Rectangle() {
 	// TODO Auto-generated destructor stub
 }
 
-} /* namespace shapes */
+string Rectangle::Print() {
+	string rectangleString = Shape::Print();
+	string width = "Width: " + this->width;
+	string endLine = "\r\n";
+	string height = "Height: " + this->height;
+	rectangleString += (width);
+	rectangleString += endLine;
+	rectangleString += height;
+	rectangleString += endLine;
+	return rectangleString;
+}
+
+}
 

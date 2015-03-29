@@ -25,7 +25,7 @@ private:
 	int randXLocation;
 	int randYLocation;
 	int colorNumber;
-	string color;
+	string randColor;
 
 	void generateRandomValues();
 	void generateRandomColor();
@@ -39,6 +39,8 @@ public:
 	void InsertShape(Shape *currentShape);
 	void CreateShapeList(int numberOfShapes);
 	const vector<Shape*>& getShapes() const;
+
+	vector<string> Print();
 
 };
 

@@ -5,15 +5,16 @@
  *      Author: dburkha1
  */
 
-#include <ShapeCollection.h>
-#include <Shapes/Circle.h>
-#include <Shapes/Hexagon.h>
-#include <Shapes/Rectangle.h>
-#include <Shapes/Square.h>
-#include <Shapes/Triangle.h>
-#include <vector>
-
+#include "ShapeCollection.h"
+#include "Shapes/Circle.h"
+#include "Shapes/Hexagon.h"
+#include "Shapes/Rectangle.h"
+#include "Shapes/Square.h"
+#include "Shapes/Triangle.h"
 #include "Shape.h"
+
+#include <vector>
+#include <iomanip>
 #include <cstdlib>
 #include <string>
 
@@ -41,31 +42,41 @@ void ShapeCollection::InsertShape(Shape* currentShape) {
 	this->shapes.push_back(currentShape);
 }
 
+static int randomValue(){
+	int randomNumber = rand();
+	return randomNumber;
+}
+
 void ShapeCollection::generateRandomValues() {
 
-	this->randomShape = rand() % 1 + 5;
-	this->randXLocation = rand() % -360 + 360;
-	this->randYLocation = rand() % -360 + 360;
-	this->colorNumber = rand() % 1 + 5;
+
+	this->randomShape = randomValue() % 1 + 5;
+
+	this->randXLocation = randomValue() % 1 + 360;
+
+	this->randYLocation = randomValue() % 1 + 360;
+
+	this->colorNumber = randomValue() % 1 + 4;
+
 }
 
 void ShapeCollection::generateRandomColor() {
 
 	switch (this->colorNumber) {
 	case 1: {
-		this->color = "Red";
+		this->randColor = "Red";
 		break;
 	}
 	case 2: {
-		this->color = "Blue";
+		this->randColor = "Blue";
 		break;
 	}
 	case 3: {
-		this->color = "Yellow";
+		this->randColor = "Yellow";
 		break;
 	}
 	case 4: {
-		this->color = "Purple";
+		this->randColor = "Purple";
 		break;
 	}
 	}
@@ -77,31 +88,31 @@ void ShapeCollection::generateRandomShapes() {
 	switch (this->randomShape) {
 	case 1: {
 		Circle* circle = new Circle(this->randXLocation, this->randYLocation,
-				this->color);
+				this->randColor);
 		this->InsertShape(circle);
 		break;
 	}
 	case 2: {
 		Hexagon* pHexagon = new Hexagon(this->randXLocation,
-				this->randYLocation, this->color);
+				this->randYLocation, this->randColor);
 		this->InsertShape(pHexagon);
 		break;
 	}
 	case 3: {
 		Rectangle* pRectangle = new Rectangle(this->randXLocation,
-				this->randYLocation, this->color);
+				this->randYLocation, this->randColor);
 		this->InsertShape(pRectangle);
 		break;
 	}
 	case 4: {
 		Square* pSquare = new Square(this->randXLocation, this->randYLocation,
-				this->color);
+				this->randColor);
 		this->InsertShape(pSquare);
 		break;
 	}
 	case 5: {
 		Triangle* pTriangle = new Triangle(this->randXLocation,
-				this->randYLocation, this->color);
+				this->randYLocation, this->randColor);
 		this->InsertShape(pTriangle);
 		break;
 	}
@@ -114,7 +125,7 @@ const vector<Shape*>& ShapeCollection::getShapes() const {
 }
 
 void ShapeCollection::CreateShapeList(int numberOfShapes) {
-
+	srand(time(0));
 	for (int i = 0; i < numberOfShapes; i++) {
 
 		this->generateRandomValues();
@@ -124,5 +135,13 @@ void ShapeCollection::CreateShapeList(int numberOfShapes) {
 		this->generateRandomShapes();
 	}
 }
+
+/*vector<string> ShapeCollection::Print() {
+
+	for (vector<string>::size_type i = 0; i < this->shapes.size(); i++) {
+
+	}
+
+}*/
 
 } /* namespace model */

@@ -48,4 +48,11 @@ Circle::~Circle() {
 	// TODO Auto-generated destructor stub
 }
 
+string Circle::Print() {
+	string circleString = Shape::Print();
+	string diameter = "Diameter: " + this->diameter;
+	circleString += (diameter + "\r\n");
+	return circleString;
+}
+
 } /* namespace shapes */

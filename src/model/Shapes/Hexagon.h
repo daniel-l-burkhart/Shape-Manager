@@ -29,6 +29,8 @@ public:
 
 	virtual ~Hexagon();
 
+	string Print();
+
 	double ComputeArea();
 	double ComputePerimeter();
 };

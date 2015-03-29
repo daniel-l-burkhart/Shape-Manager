@@ -33,6 +33,8 @@ public:
 
 	virtual ~Circle();
 
+	string Print();
+
 };
 
 } /* namespace shapes */

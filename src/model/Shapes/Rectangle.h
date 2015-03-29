@@ -32,6 +32,8 @@ public:
 	Rectangle(int xLocation, int yLocation, const string& color);
 	Rectangle(const string& ID, int xLocation, int yLocation, const string& color);
 	virtual ~Rectangle();
+
+	string Print();
 };
 
 } /* namespace shapes */
