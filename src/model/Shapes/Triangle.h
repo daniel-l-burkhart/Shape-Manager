@@ -21,8 +21,7 @@ private:
 	int base;
 	int height;
 
-	double Perimeter();
-	double Area();
+	string intToString(int input);
 
 public:
 
@@ -31,6 +30,7 @@ public:
 
 	Triangle();
 	Triangle(int xLocation, int yLocation, const string& color);
+
 
 	virtual ~Triangle();
 

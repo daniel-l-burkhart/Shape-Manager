@@ -10,6 +10,9 @@
 #include <iostream>
 
 #include "Shape.h"
+#include <iosfwd>
+#include <sstream>
+
 namespace model {
 
 const int BASE_MAX = 31;
@@ -54,14 +57,25 @@ vector<string> Triangle::PrintShape() {
 	string shapeString = Shape::Print();
 	triangle.push_back(shapeString);
 
-	string base = "Base: " + this->base;
+	string baseString = this->intToString(this->base);
+	string heightString = this->intToString(this->height);
 
-	string height = "Height: " + this->height;
+	string base = "Base: " + baseString;
+
+	string height = "Height: " + heightString;
 
 	triangle.push_back(base);
 	triangle.push_back(height);
 
 	return triangle;
+}
+
+string Triangle::intToString(int input){
+	string result;
+		stringstream out;
+		out << input;
+		result = out.str();
+		return result;
 }
 
 Triangle::~Triangle() {
