@@ -33,7 +33,7 @@ public:
 	Rectangle(const string& ID, int xLocation, int yLocation, const string& color);
 	virtual ~Rectangle();
 
-	string Print();
+	vector<string> PrintShape();
 };
 
 } /* namespace shapes */

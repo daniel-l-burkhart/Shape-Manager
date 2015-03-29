@@ -7,6 +7,7 @@
 
 #include "Triangle.h"
 #include <cstdlib>
+#include <iostream>
 
 #include "Shape.h"
 namespace model {
@@ -46,19 +47,21 @@ double Triangle::ComputePerimeter() {
 	return this->base + this->height;
 }
 
-string Triangle::Print() {
-	string resultString = Shape::Print();
+vector<string> Triangle::PrintShape() {
+
+	vector<string> triangle = vector<string>();
+
+	string shapeString = Shape::Print();
+	triangle.push_back(shapeString);
 
 	string base = "Base: " + this->base;
-	string endLine = "\r\n";
+
 	string height = "Height: " + this->height;
 
-	resultString += base;
-	resultString += endLine;
-	resultString += height;
-	resultString += endLine;
+	triangle.push_back(base);
+	triangle.push_back(height);
 
-	return resultString;
+	return triangle;
 }
 
 Triangle::~Triangle() {

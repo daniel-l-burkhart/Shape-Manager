@@ -43,10 +43,16 @@ Square::~Square() {
 	// TODO Auto-generated destructor stub
 }
 
-string Square::Print() {
+vector<string> Square::PrintShape() {
+
 	string squareString = Shape::Print();
-	squareString += ("Length: " + this->length + std::string("\r\n"));
-	return squareString;
+
+	vector<string> square = vector<string>();
+	square.push_back(squareString);
+	square.push_back("Length: " + this->length);
+
+
+	return square;
 }
 
 } /* namespace shapes */

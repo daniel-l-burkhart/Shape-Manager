@@ -48,11 +48,14 @@ Circle::~Circle() {
 	// TODO Auto-generated destructor stub
 }
 
-string Circle::Print() {
+vector<string> Circle::PrintShape() {
+	vector<string> circle = vector<string>();
 	string circleString = Shape::Print();
-	string diameter = "Diameter: " + this->diameter;
-	circleString += (diameter + "\r\n");
-	return circleString;
+	string diameter = ("Diameter: " + this->diameter);
+	circle.push_back(circleString);
+	circle.push_back(diameter);
+
+	return circle;
 }
 
 } /* namespace shapes */

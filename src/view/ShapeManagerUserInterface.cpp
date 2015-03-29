@@ -69,11 +69,17 @@ void ShapeManagerUserInterface::GenerateShapeList(int randomShapes) {
 	this->controller.GenerateShapes(randomShapes);
 }
 
+void ShapeManagerUserInterface::printOutDetails(vector<string> currentShape) {
+	for (vector<string>::size_type i = 0; i < currentShape.size(); i++) {
+		cout << currentShape[i] << endl;
+	}
+}
+
 void ShapeManagerUserInterface::PrintShapeList() {
 	vector<Shape*> currentShapeList = this->controller.GetShapeList();
 
-	for(vector<Shape*>::size_type i = 0; i<currentShapeList.size(); i++){
-		cout << currentShapeList[i]->Print();
+	for (vector<Shape*>::size_type i = 0; i < currentShapeList.size(); i++) {
+		this->printOutDetails(currentShapeList[i]->PrintShape());
 	}
 }
 

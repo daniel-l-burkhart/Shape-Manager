@@ -44,12 +44,17 @@ double Hexagon::ComputeArea() {
 	return area;
 }
 
-string Hexagon::Print() {
+vector<string> Hexagon::PrintShape() {
+	vector<string> hexagon = vector<string>();
 	string hexagonString = Shape::Print();
 
 	string length = "Length: " + this->length;
-	hexagonString += (length + "\r\n");
-	return hexagonString;
+
+	hexagon.push_back(hexagonString);
+	hexagon.push_back(length);
+
+
+	return hexagon;
 }
 
 double Hexagon::ComputePerimeter() {

@@ -33,7 +33,7 @@ public:
 
 	virtual ~Circle();
 
-	string Print();
+	vector<string> PrintShape();
 
 };
 

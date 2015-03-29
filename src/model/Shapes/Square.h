@@ -32,7 +32,7 @@ public:
 	Square(int xLocation, int yLocation, const string& color);
 	virtual ~Square();
 
-	string Print();
+	vector<string> PrintShape();
 };
 
 } /* namespace shapes */

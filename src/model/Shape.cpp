@@ -73,9 +73,10 @@ int Shape::getYLocation() const {
 string Shape::Print() {
 	string shapeString;
 	string shapeType = "Shape: " + this->shapeType;
-	string xPosition = "Position: " + this->getXLocation();
+
 	string color = ("Color: " + this->color);
-	string yPosition = ", " + this->getYLocation();
+
+	this->yLocation;
 
 	std::ostringstream strs;
 	strs << this->perimeter;
@@ -87,12 +88,22 @@ string Shape::Print() {
 	stream << this->area;
 	std::string areaString = stream.str();
 
+	std::ostringstream yLocation;
+	yLocation << this->yLocation;
+	string yLocationString = yLocation.str();
+
 	string Area = ("Area: " + areaString);
+
+	std::ostringstream xString;
+	xString << this->xLocation;
+	string xLocationString = xString.str();
+
+	string xPosition = "Position: " + xLocationString + ", ";
 
 	string endLine = "\r\n";
 
-	shapeString += (shapeType + endLine + xPosition + yPosition + endLine
-			+ color + endLine + Area + endLine + Perimeter + endLine);
+	shapeString += (shapeType + endLine + xPosition + yLocationString + endLine
+			+ color + endLine + Area + endLine + Perimeter);
 
 	return shapeString;
 

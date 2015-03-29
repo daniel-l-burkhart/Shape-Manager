@@ -34,7 +34,7 @@ public:
 
 	virtual ~Triangle();
 
-	string Print();
+	vector<string> PrintShape();
 };
 
 } /* namespace shapes */

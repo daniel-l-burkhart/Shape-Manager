@@ -8,7 +8,10 @@
 #ifndef MODEL_SHAPE_H_
 #define MODEL_SHAPE_H_
 
+#include "Shape.h"
+#include <iosfwd>
 #include <string>
+#include <vector>
 
 using namespace std;
 
@@ -38,7 +41,9 @@ public:
 	int getXLocation() const;
 	int getYLocation() const;
 
-	virtual string Print();
+	string Print();
+
+	virtual vector<string> PrintShape() = 0;
 
 	virtual double ComputeArea() = 0;
 	virtual double ComputePerimeter() = 0;

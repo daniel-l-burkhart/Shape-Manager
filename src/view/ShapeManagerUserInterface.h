@@ -19,6 +19,7 @@ private:
 	ShapeManagerController controller;
 
 	void repeatMenuSystem();
+	void printOutDetails(vector<string> currentShape);
 
 public:
 	ShapeManagerUserInterface();
@@ -26,6 +27,7 @@ public:
 	void MenuSystem();
 	void GenerateShapeList(int randomShapes);
 	void PrintShapeList();
+
 };
 
 } /* namespace view */

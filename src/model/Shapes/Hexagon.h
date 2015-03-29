@@ -29,7 +29,7 @@ public:
 
 	virtual ~Hexagon();
 
-	string Print();
+	vector<string> PrintShape();
 
 	double ComputeArea();
 	double ComputePerimeter();

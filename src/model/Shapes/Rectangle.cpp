@@ -60,16 +60,18 @@ Rectangle::~Rectangle() {
 	// TODO Auto-generated destructor stub
 }
 
-string Rectangle::Print() {
+vector<string> Rectangle::PrintShape() {
 	string rectangleString = Shape::Print();
 	string width = "Width: " + this->width;
-	string endLine = "\r\n";
+
 	string height = "Height: " + this->height;
-	rectangleString += (width);
-	rectangleString += endLine;
-	rectangleString += height;
-	rectangleString += endLine;
-	return rectangleString;
+
+	vector<string> rectangle = vector<string>();
+	rectangle.push_back(rectangleString);
+	rectangle.push_back(width);
+	rectangle.push_back(height);
+
+	return rectangle;
 }
 
 }
