@@ -28,9 +28,9 @@ Rectangle::Rectangle() {
 Rectangle::Rectangle(int xLocation, int yLocation, const string& color) :
 		Shape("Rectangle", xLocation, yLocation, color) {
 
-	int width = rand() % WIDTH_MAX + WIDTH_MIN;
+	int width = Shape::GenerateRandomNumber(WIDTH_MIN, WIDTH_MAX);
 
-	int height = rand() % HEIGHT_MAX + HEIGHT_MIN;
+	int height = Shape::GenerateRandomNumber(HEIGHT_MIN, HEIGHT_MAX);
 
 	this->width = width;
 	this->height = height;
@@ -44,8 +44,13 @@ Rectangle::Rectangle(const string& ID, int xLocation, int yLocation,
 		const string& color) :
 		Shape(ID, xLocation, yLocation, color) {
 
-	this->height = 0;
-	this->width = 0;
+	const int LENGTH_MAX = 36;
+	const int LENGTH_MIN = 14;
+
+	int side = Shape::GenerateRandomNumber(LENGTH_MIN, LENGTH_MAX);
+
+	this->height = side;
+	this->width = side;
 }
 
 double Rectangle::ComputeArea() {
@@ -60,18 +65,21 @@ Rectangle::~Rectangle() {
 	// TODO Auto-generated destructor stub
 }
 
+int Rectangle::getWidth() const {
+	return width;
+}
+
 vector<string> Rectangle::PrintShape() {
-	string rectangleString = Shape::Print();
-	string width = "Width: " + this->width;
 
-	string height = "Height: " + this->height;
+	vector<string> rectangleString = Shape::PrintShape();
+	string width = "Width: " + Shape::intToString(this->width);
 
-	vector<string> rectangle = vector<string>();
-	rectangle.push_back(rectangleString);
-	rectangle.push_back(width);
-	rectangle.push_back(height);
+	string height = "Height: " + Shape::intToString(this->height);
 
-	return rectangle;
+	rectangleString.push_back(width);
+	rectangleString.push_back(height);
+
+	return rectangleString;
 }
 
 }

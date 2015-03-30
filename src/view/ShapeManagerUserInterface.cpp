@@ -28,7 +28,7 @@ ShapeManagerUserInterface::~ShapeManagerUserInterface() {
 void ShapeManagerUserInterface::repeatMenuSystem() {
 	string response;
 	cout << "Press 'S' to generate more shapes or 'Q' to quit." << endl << ">";
-	cin >> response;
+
 	while (response.length() > 1) {
 		cout << "I'm sorry. That input is invalid. Please try again." << endl;
 		cin >> response;
@@ -50,19 +50,20 @@ void ShapeManagerUserInterface::repeatMenuSystem() {
 void ShapeManagerUserInterface::MenuSystem() {
 
 	int numberOfShapes;
+
 	cout << "Please enter the number of shapes that you would like to generate"
 			<< endl << ">";
 
-	cin >> numberOfShapes;
+	if (!(cin >> numberOfShapes) || numberOfShapes <= 0) {
 
-	while (!cin >> numberOfShapes) {
-		cout << "Please enter a valid number" << endl;
-		cin >> numberOfShapes;
-	}
+			cout << "Please enter a valid number." << endl;
+			cin >> numberOfShapes;
+		}
+
 	this->GenerateShapeList(numberOfShapes);
 	this->PrintShapeList();
 
-	//this->repeatMenuSystem();
+	this->repeatMenuSystem();
 }
 
 void ShapeManagerUserInterface::GenerateShapeList(int randomShapes) {
@@ -73,6 +74,7 @@ void ShapeManagerUserInterface::printOutDetails(vector<string> currentShape) {
 	for (vector<string>::size_type i = 0; i < currentShape.size(); i++) {
 		cout << currentShape[i] << endl;
 	}
+	cout << endl;
 }
 
 void ShapeManagerUserInterface::PrintShapeList() {

@@ -26,7 +26,7 @@ Hexagon::Hexagon() {
 Hexagon::Hexagon(int x, int y, const string& color) :
 		Shape("Hexagon", x, y, color) {
 
-	int length = rand() % LENGTH_MAX + LENGTH_MIN;
+	int length = Shape::GenerateRandomNumber(LENGTH_MIN, LENGTH_MAX);
 
 	this->length = length;
 
@@ -45,16 +45,14 @@ double Hexagon::ComputeArea() {
 }
 
 vector<string> Hexagon::PrintShape() {
-	vector<string> hexagon = vector<string>();
-	string hexagonString = Shape::Print();
 
-	string length = "Length: " + this->length;
+	vector<string> hexagonString = Shape::PrintShape();
 
-	hexagon.push_back(hexagonString);
-	hexagon.push_back(length);
+	string length = "Length: " + Shape::intToString(this->length);
 
+	hexagonString.push_back(length);
 
-	return hexagon;
+	return hexagonString;
 }
 
 double Hexagon::ComputePerimeter() {

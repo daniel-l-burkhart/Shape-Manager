@@ -7,6 +7,7 @@
 
 #include "Shape.h"
 #include <cstdlib>
+#include <iomanip>
 #include <iosfwd>
 #include <ostream>
 #include <iostream>
@@ -70,43 +71,53 @@ int Shape::getYLocation() const {
 	return yLocation;
 }
 
-string Shape::Print() {
-	string shapeString;
+int Shape::GenerateRandomNumber(int min, int max) {
+
+	return ((double) rand() / ((double) RAND_MAX + 1.0)) * (max - min + 1) + min;
+}
+
+vector<string> Shape::PrintShape() {
+
+	vector<string> shapeDetails = vector<string>();
+
 	string shapeType = "Shape: " + this->shapeType;
 
 	string color = ("Color: " + this->color);
 
-	this->yLocation;
+	string perimeterString = ("Perimeter: "
+			+ this->doubleToString(this->perimeter));
 
-	std::ostringstream strs;
-	strs << this->perimeter;
-	std::string str = strs.str();
+	string areaString = ("Area: " + this->doubleToString(this->area));
 
-	string Perimeter = ("Perimeter: " + str);
+	string position = "Position: " + Shape::intToString(this->xLocation) + ", "
+			+ Shape::intToString(this->yLocation);
 
-	std::ostringstream stream;
-	stream << this->area;
-	std::string areaString = stream.str();
+	shapeDetails.push_back(shapeType);
+	shapeDetails.push_back(position);
+	shapeDetails.push_back(color);
+	shapeDetails.push_back(areaString);
+	shapeDetails.push_back(perimeterString);
 
-	std::ostringstream yLocation;
-	yLocation << this->yLocation;
-	string yLocationString = yLocation.str();
+	return shapeDetails;
 
-	string Area = ("Area: " + areaString);
+}
 
-	std::ostringstream xString;
-	xString << this->xLocation;
-	string xLocationString = xString.str();
+string Shape::intToString(int input) {
+	string result;
+	stringstream out;
+	out << input;
+	result = out.str();
+	return result;
+}
 
-	string xPosition = "Position: " + xLocationString + ", ";
+string Shape::doubleToString(double inputDouble) {
+	string result;
+	stringstream out;
 
-	string endLine = "\r\n";
-
-	shapeString += (shapeType + endLine + xPosition + yLocationString + endLine
-			+ color + endLine + Area + endLine + Perimeter);
-
-	return shapeString;
-
+	out << inputDouble << setprecision(4) << setfill('0');
+	result = out.str();
+	out.clear();
+	return result;
 }
 
 Shape::~Shape() {

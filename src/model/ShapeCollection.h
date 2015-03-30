@@ -32,6 +32,8 @@ private:
 
 	void generateRandomShapes();
 
+
+
 public:
 	ShapeCollection();
 
@@ -40,7 +42,8 @@ public:
 	void CreateShapeList(int numberOfShapes);
 	const vector<Shape*>& getShapes() const;
 
-	vector<string> Print();
+
+	int GenerateRandomNumber(int min, int max);
 
 };
 

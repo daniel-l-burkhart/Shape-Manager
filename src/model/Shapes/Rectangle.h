@@ -34,6 +34,7 @@ public:
 	virtual ~Rectangle();
 
 	vector<string> PrintShape();
+	int getWidth() const;
 };
 
 } /* namespace shapes */

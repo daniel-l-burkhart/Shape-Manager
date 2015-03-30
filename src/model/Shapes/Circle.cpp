@@ -26,7 +26,7 @@ Circle::Circle() {
 Circle::Circle(int xLocation, int yLocation, const string& color) :
 		Shape("Circle", xLocation, yLocation, color) {
 
-	int diameter = rand() % DIAMETER_MAX + DIAMETER_MIN;
+	int diameter = Shape::GenerateRandomNumber(DIAMETER_MIN, DIAMETER_MAX);
 
 	this->diameter = diameter;
 
@@ -49,13 +49,13 @@ Circle::~Circle() {
 }
 
 vector<string> Circle::PrintShape() {
-	vector<string> circle = vector<string>();
-	string circleString = Shape::Print();
-	string diameter = ("Diameter: " + this->diameter);
-	circle.push_back(circleString);
-	circle.push_back(diameter);
 
-	return circle;
+	vector<string> circleString = Shape::PrintShape();
+	string diameter = ("Diameter: " + Shape::intToString(this->diameter));
+
+	circleString.push_back(diameter);
+
+	return circleString;
 }
 
 } /* namespace shapes */

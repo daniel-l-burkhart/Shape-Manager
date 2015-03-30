@@ -41,9 +41,12 @@ public:
 	int getXLocation() const;
 	int getYLocation() const;
 
-	string Print();
+	string intToString(int input);
+	string doubleToString(double doubleVal);
 
-	virtual vector<string> PrintShape() = 0;
+	int GenerateRandomNumber(int min, int max);
+
+	virtual vector<string> PrintShape();
 
 	virtual double ComputeArea() = 0;
 	virtual double ComputePerimeter() = 0;

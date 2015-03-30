@@ -19,14 +19,8 @@ namespace model {
 
 class Square : public Rectangle {
 
-private:
-
-	int length;
-
 public:
 
-	double ComputeArea();
-	double ComputePerimeter();
 
 	Square();
 	Square(int xLocation, int yLocation, const string& color);

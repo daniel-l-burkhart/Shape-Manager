@@ -17,6 +17,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <string>
+#include <random>
 
 namespace model {
 
@@ -42,22 +43,25 @@ void ShapeCollection::InsertShape(Shape* currentShape) {
 	this->shapes.push_back(currentShape);
 }
 
-static int randomValue(){
-	int randomNumber = rand();
-	return randomNumber;
-}
 
 void ShapeCollection::generateRandomValues() {
 
+	this->randomShape = this->GenerateRandomNumber(1, 5);
+	this->randXLocation = this->GenerateRandomNumber(-180, 180);
+	this->randYLocation = this->GenerateRandomNumber(-180, 180);
+	this->colorNumber = this->GenerateRandomNumber(1, 4);
 
-	this->randomShape = randomValue() % 1 + 5;
 
-	this->randXLocation = randomValue() % 1 + 360;
+//	this->randXLocation = randomValue() % 1 + 360;
+//
+//	this->randYLocation = randomValue() % 1 + 360;
+//
+//	this->colorNumber = randomValue() % 1 + 4;
 
-	this->randYLocation = randomValue() % 1 + 360;
+}
 
-	this->colorNumber = randomValue() % 1 + 4;
-
+int ShapeCollection::GenerateRandomNumber(int min, int max) {
+	return ((double) rand() / ((double) RAND_MAX + 1.0)) * (max - min + 1) + min;
 }
 
 void ShapeCollection::generateRandomColor() {
@@ -87,30 +91,35 @@ void ShapeCollection::generateRandomShapes() {
 
 	switch (this->randomShape) {
 	case 1: {
+
 		Circle* circle = new Circle(this->randXLocation, this->randYLocation,
 				this->randColor);
 		this->InsertShape(circle);
 		break;
 	}
 	case 2: {
+
 		Hexagon* pHexagon = new Hexagon(this->randXLocation,
 				this->randYLocation, this->randColor);
 		this->InsertShape(pHexagon);
 		break;
 	}
 	case 3: {
+
 		Rectangle* pRectangle = new Rectangle(this->randXLocation,
 				this->randYLocation, this->randColor);
 		this->InsertShape(pRectangle);
 		break;
 	}
 	case 4: {
+
 		Square* pSquare = new Square(this->randXLocation, this->randYLocation,
 				this->randColor);
 		this->InsertShape(pSquare);
 		break;
 	}
 	case 5: {
+
 		Triangle* pTriangle = new Triangle(this->randXLocation,
 				this->randYLocation, this->randColor);
 		this->InsertShape(pTriangle);
@@ -125,7 +134,9 @@ const vector<Shape*>& ShapeCollection::getShapes() const {
 }
 
 void ShapeCollection::CreateShapeList(int numberOfShapes) {
-	srand(time(0));
+
+	srand((int) time(0));
+
 	for (int i = 0; i < numberOfShapes; i++) {
 
 		this->generateRandomValues();
@@ -136,12 +147,6 @@ void ShapeCollection::CreateShapeList(int numberOfShapes) {
 	}
 }
 
-/*vector<string> ShapeCollection::Print() {
 
-	for (vector<string>::size_type i = 0; i < this->shapes.size(); i++) {
-
-	}
-
-}*/
 
 } /* namespace model */

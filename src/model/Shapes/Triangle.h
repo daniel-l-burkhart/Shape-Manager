@@ -21,8 +21,6 @@ private:
 	int base;
 	int height;
 
-	string intToString(int input);
-
 public:
 
 	double ComputeArea();

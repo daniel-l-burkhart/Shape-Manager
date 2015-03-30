@@ -30,8 +30,8 @@ Triangle::Triangle() {
 Triangle::Triangle(int xLocation, int yLocation, const string& color) :
 		Shape("Triangle", xLocation, yLocation, color) {
 
-	int base = rand() % BASE_MAX + BASE_MIN;
-	int height = rand() % HEIGHT_MAX + HEIGHT_MIN;
+	int base = Shape::GenerateRandomNumber(BASE_MIN, BASE_MAX);
+	int height = Shape::GenerateRandomNumber(HEIGHT_MIN, HEIGHT_MAX);
 
 	this->base = base;
 	this->height = height;
@@ -52,31 +52,19 @@ double Triangle::ComputePerimeter() {
 
 vector<string> Triangle::PrintShape() {
 
-	vector<string> triangle = vector<string>();
+	vector<string> triangleString = Shape::PrintShape();
 
-	string shapeString = Shape::Print();
-	triangle.push_back(shapeString);
 
-	string baseString = this->intToString(this->base);
-	string heightString = this->intToString(this->height);
+	string base = "Base: " + Shape::intToString(this->base);
 
-	string base = "Base: " + baseString;
+	string height = "Height: " + Shape::intToString(this->height);
 
-	string height = "Height: " + heightString;
+	triangleString.push_back(base);
+	triangleString.push_back(height);
 
-	triangle.push_back(base);
-	triangle.push_back(height);
-
-	return triangle;
+	return triangleString;
 }
 
-string Triangle::intToString(int input){
-	string result;
-		stringstream out;
-		out << input;
-		result = out.str();
-		return result;
-}
 
 Triangle::~Triangle() {
 	// TODO Auto-generated destructor stub
