@@ -135,6 +135,8 @@ const vector<Shape*>& ShapeCollection::getShapes() const {
 
 void ShapeCollection::CreateShapeList(int numberOfShapes) {
 
+	this->shapes.clear();
+
 	srand((int) time(0));
 
 	for (int i = 0; i < numberOfShapes; i++) {

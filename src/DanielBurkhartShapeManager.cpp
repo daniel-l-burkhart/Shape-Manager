@@ -8,7 +8,6 @@
 
 #include <iostream>
 
-
 #include "ShapeManagerUserInterface.h"
 
 using view::ShapeManagerUserInterface;
@@ -20,7 +19,8 @@ int main(int argc, const char * argv[]) {
 
 	if (argc != 1) {
 
-		//userInterface.GenerateShapeList(argv[1]);
+		userInterface.GenerateShapesCommandLine(argv[1]);
+
 	} else {
 		userInterface.MenuSystem();
 	}

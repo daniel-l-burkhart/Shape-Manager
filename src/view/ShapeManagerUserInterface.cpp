@@ -13,6 +13,7 @@
 #include "Shape.h"
 #include <cstdlib>
 #include <vector>
+
 using namespace std;
 namespace view {
 
@@ -27,7 +28,9 @@ ShapeManagerUserInterface::~ShapeManagerUserInterface() {
 
 void ShapeManagerUserInterface::repeatMenuSystem() {
 	string response;
+
 	cout << "Press 'S' to generate more shapes or 'Q' to quit." << endl << ">";
+	cin >> response;
 
 	while (response.length() > 1) {
 		cout << "I'm sorry. That input is invalid. Please try again." << endl;
@@ -44,6 +47,9 @@ void ShapeManagerUserInterface::repeatMenuSystem() {
 		exit(0);
 		break;
 	}
+	default:
+		cout << "Invalid input. Please try again." << endl;
+		this->repeatMenuSystem();
 	}
 }
 
@@ -54,11 +60,15 @@ void ShapeManagerUserInterface::MenuSystem() {
 	cout << "Please enter the number of shapes that you would like to generate"
 			<< endl << ">";
 
-	if (!(cin >> numberOfShapes) || numberOfShapes <= 0) {
 
-			cout << "Please enter a valid number." << endl;
-			cin >> numberOfShapes;
-		}
+    cin >> numberOfShapes;
+    while(std::cin.fail())
+    {
+        cin.clear();
+        cin.ignore();
+        cout << "Please enter a valid number." << endl;
+        cin >> numberOfShapes;
+    }
 
 	this->GenerateShapeList(numberOfShapes);
 	this->PrintShapeList();
@@ -75,6 +85,14 @@ void ShapeManagerUserInterface::printOutDetails(vector<string> currentShape) {
 		cout << currentShape[i] << endl;
 	}
 	cout << endl;
+}
+
+void ShapeManagerUserInterface::GenerateShapesCommandLine(string inputString) {
+	char inputChar = inputString[0];
+	double input = atof(&inputChar);
+	int number = input;
+	this->GenerateShapeList(number);
+
 }
 
 void ShapeManagerUserInterface::PrintShapeList() {

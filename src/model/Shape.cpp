@@ -111,10 +111,11 @@ string Shape::intToString(int input) {
 }
 
 string Shape::doubleToString(double inputDouble) {
+
 	string result;
 	stringstream out;
 
-	out << inputDouble << setprecision(4) << setfill('0');
+	out << std::fixed << std::setprecision(2) << inputDouble;
 	result = out.str();
 	out.clear();
 	return result;
