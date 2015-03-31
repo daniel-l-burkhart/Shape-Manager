@@ -86,10 +86,20 @@ void ShapeManagerUserInterface::MenuSystem() {
 	this->repeatMenuSystem();
 }
 
+/**
+ * Generates the Shape list
+ * @param randomShapes
+ * 		The number of random shapes indicated by the user.
+ */
 void ShapeManagerUserInterface::GenerateShapeList(int randomShapes) {
 	this->controller.GenerateShapes(randomShapes);
 }
 
+/**
+ * Prints out the vector to the user.
+ * @param currentShape
+ * 		The current shape in the list to be printed out to the user.
+ */
 void ShapeManagerUserInterface::printOutDetails(vector<string> currentShape) {
 	for (vector<string>::size_type i = 0; i < currentShape.size(); i++) {
 		cout << currentShape[i] << endl;
