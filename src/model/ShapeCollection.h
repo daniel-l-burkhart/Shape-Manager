@@ -13,9 +13,6 @@
 #include "Shape.h"
 namespace model {
 
-/*
- *
- */
 class ShapeCollection {
 private:
 
@@ -29,10 +26,9 @@ private:
 
 	void generateRandomValues();
 	void generateRandomColor();
-
 	void generateRandomShapes();
 
-
+	void clearList();
 
 public:
 	ShapeCollection();
@@ -41,7 +37,6 @@ public:
 	void InsertShape(Shape *currentShape);
 	void CreateShapeList(int numberOfShapes);
 	const vector<Shape*>& getShapes() const;
-
 
 	int GenerateRandomNumber(int min, int max);
 

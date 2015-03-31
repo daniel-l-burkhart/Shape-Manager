@@ -6,6 +6,7 @@
  */
 
 #include "Shape.h"
+
 #include <cstdlib>
 #include <iomanip>
 #include <iosfwd>
@@ -18,6 +19,9 @@ using std::endl;
 
 namespace model {
 
+/**
+ * The constructor of the class.
+ */
 Shape::Shape() {
 
 	this->xLocation = 0;
@@ -27,6 +31,17 @@ Shape::Shape() {
 
 }
 
+/**
+ * The constructor of the class that instantiates a new shape.
+ * @param shapeType
+ * 		The type of shape it is.
+ * @param xLocation
+ * 		The X-Location of the shape.
+ * @param yLocation
+ * 		The Y-Location of the shape.
+ * @param color
+ * 		The color of the shape.
+ */
 Shape::Shape(const string& shapeType, int xLocation, int yLocation,
 		const string& color) {
 
@@ -39,43 +54,43 @@ Shape::Shape(const string& shapeType, int xLocation, int yLocation,
 	this->perimeter = 0;
 }
 
-double Shape::getArea() const {
-	return area;
-}
-
+/**
+ * Sets the area of the shape
+ * @param area
+ * 		The area variable
+ */
 void Shape::setArea(double area) {
 	this->area = area;
 }
 
-const string& Shape::getColor() const {
-	return color;
-}
-
-double Shape::getPerimeter() const {
-	return perimeter;
-}
-
+/**
+ * Sets the perimeter of the shape
+ * @param perimeter
+ * 		The perimeter of the shape.
+ */
 void Shape::setPerimeter(double perimeter) {
 	this->perimeter = perimeter;
 }
 
-const string& Shape::getShapeType() const {
-	return shapeType;
-}
-
-int Shape::getXLocation() const {
-	return xLocation;
-}
-
-int Shape::getYLocation() const {
-	return yLocation;
-}
-
+/**
+ * Function to generate random numbers to be used by the shapes to randomize the various attributes.
+ * @param min
+ * 		The min of the range.
+ * @param max
+ * 		The max of the range.
+ * @return
+ * 		A "random" number.
+ */
 int Shape::GenerateRandomNumber(int min, int max) {
 
 	return ((double) rand() / ((double) RAND_MAX + 1.0)) * (max - min + 1) + min;
 }
 
+/**
+ * Vector that stores all the attributes of the shape to be printed out to the user.
+ * @return
+ * 		A string vector storing the information
+ */
 vector<string> Shape::PrintShape() {
 
 	vector<string> shapeDetails = vector<string>();
@@ -89,8 +104,8 @@ vector<string> Shape::PrintShape() {
 
 	string areaString = ("Area: " + this->doubleToString(this->area));
 
-	string position = "Position: " + Shape::intToString(this->xLocation) + ", "
-			+ Shape::intToString(this->yLocation);
+	string position = "Position: " + Shape::IntToString(this->xLocation) + ", "
+			+ Shape::IntToString(this->yLocation);
 
 	shapeDetails.push_back(shapeType);
 	shapeDetails.push_back(position);
@@ -102,7 +117,14 @@ vector<string> Shape::PrintShape() {
 
 }
 
-string Shape::intToString(int input) {
+/**
+ * Converts an int to a string
+ * @param input
+ * 		The int input
+ * @return
+ * 		A string representation of the integer input.
+ */
+string Shape::IntToString(int input) {
 	string result;
 	stringstream out;
 	out << input;
@@ -110,6 +132,13 @@ string Shape::intToString(int input) {
 	return result;
 }
 
+/**
+ * Converts a double to a string
+ * @param inputDouble
+ * 		The double input
+ * @return
+ * 		A string representation of the double input.
+ */
 string Shape::doubleToString(double inputDouble) {
 
 	string result;

@@ -21,6 +21,9 @@
 
 namespace model {
 
+/**
+ * Constructor of the collection class.
+ */
 ShapeCollection::ShapeCollection() {
 
 	this->shapes = vector<Shape*>();
@@ -31,19 +34,26 @@ ShapeCollection::ShapeCollection() {
 	this->colorNumber = 0;
 }
 
+/**
+ *
+ */
 ShapeCollection::~ShapeCollection() {
-	for (vector<Shape*>::size_type i = 0; i < this->shapes.size(); i++) {
-		delete this->shapes[i];
-		this->shapes[i] = 0;
-	}
+	this->clearList();
 }
 
+/**
+ * Inserts shape into the list of random shapes.
+ * @param currentShape
+ * 		The shape being inserted into the list.
+ */
 void ShapeCollection::InsertShape(Shape* currentShape) {
 
 	this->shapes.push_back(currentShape);
 }
 
-
+/**
+ * Generates the random values that create the random shapes.
+ */
 void ShapeCollection::generateRandomValues() {
 
 	this->randomShape = this->GenerateRandomNumber(1, 5);
@@ -51,19 +61,36 @@ void ShapeCollection::generateRandomValues() {
 	this->randYLocation = this->GenerateRandomNumber(-180, 180);
 	this->colorNumber = this->GenerateRandomNumber(1, 4);
 
-
-//	this->randXLocation = randomValue() % 1 + 360;
-//
-//	this->randYLocation = randomValue() % 1 + 360;
-//
-//	this->colorNumber = randomValue() % 1 + 4;
-
 }
 
+/**
+ * Method that clears out the vector of Shape pointers,
+ * deletes the pointers, and sets it to 0.
+ */
+void ShapeCollection::clearList() {
+	for (vector<Shape*>::size_type i = 0; i < this->shapes.size(); i++) {
+		delete this->shapes[i];
+		this->shapes[i] = 0;
+	}
+	this->shapes.clear();
+}
+
+/**
+ * Generates a random number based off the min and max of the range.
+ * @param min
+ * 		the minimum value of the range.
+ * @param max
+ * 		the maximum value of the range.
+ * @return
+ * 		A "random" number.
+ */
 int ShapeCollection::GenerateRandomNumber(int min, int max) {
 	return ((double) rand() / ((double) RAND_MAX + 1.0)) * (max - min + 1) + min;
 }
 
+/**
+ * Generates a random color.
+ */
 void ShapeCollection::generateRandomColor() {
 
 	switch (this->colorNumber) {
@@ -87,6 +114,9 @@ void ShapeCollection::generateRandomColor() {
 
 }
 
+/**
+ * Generates the random shapes.
+ */
 void ShapeCollection::generateRandomShapes() {
 
 	switch (this->randomShape) {
@@ -129,13 +159,22 @@ void ShapeCollection::generateRandomShapes() {
 
 }
 
+/**
+ * Returns the shape collection.
+ * @return
+ * 		Returns the lsit of shapes.
+ */
 const vector<Shape*>& ShapeCollection::getShapes() const {
 	return this->shapes;
 }
 
+/**
+ * Creates the shape list.
+ * @param numberOfShapes
+ * 		The number of shapes.
+ */
 void ShapeCollection::CreateShapeList(int numberOfShapes) {
-
-	this->shapes.clear();
+	this->clearList();
 
 	srand((int) time(0));
 
@@ -148,7 +187,5 @@ void ShapeCollection::CreateShapeList(int numberOfShapes) {
 		this->generateRandomShapes();
 	}
 }
-
-
 
 } /* namespace model */

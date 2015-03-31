@@ -8,7 +8,8 @@
 #include "Circle.h"
 
 #include "Shape.h"
-#define _USE_MATH_DEFINES // for C++
+#define _USE_MATH_DEFINES
+
 #include <cmath>
 #include <cstdlib>
 
@@ -17,12 +18,24 @@ namespace model {
 const int DIAMETER_MAX = 26;
 const int DIAMETER_MIN = 14;
 
+/**
+ * The default constructor of the class.
+ */
 Circle::Circle() {
 
 	this->diameter = 0;
 
 }
 
+/**
+ * The constructor that makes a new shape.
+ * @param xLocation
+ * 		The X-Location.
+ * @param yLocation
+ * 		The Y-Location
+ * @param color
+ * 		The color.
+ */
 Circle::Circle(int xLocation, int yLocation, const string& color) :
 		Shape("Circle", xLocation, yLocation, color) {
 
@@ -34,12 +47,22 @@ Circle::Circle(int xLocation, int yLocation, const string& color) :
 	Shape::setPerimeter(this->ComputePerimeter());
 }
 
+/**
+ * The area of the circle
+ * @return
+ * 		The area of the circle.
+ */
 double Circle::ComputeArea() {
 	double radius = this->diameter / 2;
 
 	return (M_PI * radius * radius);
 }
 
+/**
+ * The perimeter of the cirlce.
+ * @return
+ * 		The perimeter.
+ */
 double Circle::ComputePerimeter() {
 	return (M_PI * this->diameter);
 }
@@ -48,14 +71,19 @@ Circle::~Circle() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * Prints out the shape to the user.
+ * @return
+ * 		The vector containing the shape.
+ */
 vector<string> Circle::PrintShape() {
 
-	vector<string> circleString = Shape::PrintShape();
-	string diameter = ("Diameter: " + Shape::intToString(this->diameter));
+	vector<string> circleVector = Shape::PrintShape();
+	string diameter = ("Diameter: " + Shape::IntToString(this->diameter));
 
-	circleString.push_back(diameter);
+	circleVector.push_back(diameter);
 
-	return circleString;
+	return circleVector;
 }
 
 } /* namespace shapes */

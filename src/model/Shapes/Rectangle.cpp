@@ -18,6 +18,9 @@ const int HEIGHT_MIN = 9;
 
 const int PERIMETER_LITERAL = 2;
 
+/**
+ * The default constructor.
+ */
 Rectangle::Rectangle() {
 
 	this->width = 0;
@@ -25,6 +28,15 @@ Rectangle::Rectangle() {
 
 }
 
+/**
+ * The rectangle constructor that inherits from the shape class.
+ * @param xLocation
+ * 		The x-location of the shape.
+ * @param yLocation
+ * 		The y-location of the shape.
+ * @param color
+ * 		The color of the shape.
+ */
 Rectangle::Rectangle(int xLocation, int yLocation, const string& color) :
 		Shape("Rectangle", xLocation, yLocation, color) {
 
@@ -40,6 +52,19 @@ Rectangle::Rectangle(int xLocation, int yLocation, const string& color) :
 
 }
 
+/**
+ * The rectangle constructor that contains the
+ * details of the square since the square
+ * inherits the rectangle.
+ * @param ID
+ * 		The ID of the shape.
+ * @param xLocation
+ * 		The X-Location of the shape.
+ * @param yLocation
+ * 		The Y-Location of the shape.
+ * @param color
+ * 		The color of the shape.
+ */
 Rectangle::Rectangle(const string& ID, int xLocation, int yLocation,
 		const string& color) :
 		Shape(ID, xLocation, yLocation, color) {
@@ -53,33 +78,56 @@ Rectangle::Rectangle(const string& ID, int xLocation, int yLocation,
 	this->width = side;
 }
 
+/**
+ * Computes the area of the rectangle.
+ * @return
+ * 		The area of the rectangle.
+ */
 double Rectangle::ComputeArea() {
 	return (this->width * this->height);
 }
 
+/**
+ * Computes the perimeter of the rectangle.
+ * @return
+ * 		The perimeter of the rectangle.
+ */
 double Rectangle::ComputePerimeter() {
 	return (PERIMETER_LITERAL * (this->width + this->height));
 }
 
+/**
+ * The destructor of the class.
+ */
 Rectangle::~Rectangle() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * Getter method for width of the shape.
+ * @return
+ * The width of the shape
+ */
 int Rectangle::getWidth() const {
 	return width;
 }
 
+/**
+ * The details of the Rectangle
+ * @return
+ * 		A vector of the rectangle details.
+ */
 vector<string> Rectangle::PrintShape() {
 
-	vector<string> rectangleString = Shape::PrintShape();
-	string width = "Width: " + Shape::intToString(this->width);
+	vector<string> rectangleVector = Shape::PrintShape();
+	string width = "Width: " + Shape::IntToString(this->width);
 
-	string height = "Height: " + Shape::intToString(this->height);
+	string height = "Height: " + Shape::IntToString(this->height);
 
-	rectangleString.push_back(width);
-	rectangleString.push_back(height);
+	rectangleVector.push_back(width);
+	rectangleVector.push_back(height);
 
-	return rectangleString;
+	return rectangleVector;
 }
 
 }

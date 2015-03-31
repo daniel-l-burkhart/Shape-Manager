@@ -41,7 +41,7 @@ public:
 	int getXLocation() const;
 	int getYLocation() const;
 
-	string intToString(int input);
+	string IntToString(int input);
 	string doubleToString(double doubleVal);
 
 	int GenerateRandomNumber(int min, int max);

@@ -13,10 +13,22 @@
 #include "Rectangle.h"
 namespace model {
 
+/**
+ * The constructor of the class.
+ */
 Square::Square() {
 
 }
 
+/**
+ * The constructor that instantiates a new square.
+ * @param xLocation
+ * 		The X-Location of the shape
+ * @param yLocation
+ * 		The Y-Location of the Shape.
+ * @param color
+ * 		The color of the shape.
+ */
 Square::Square(int xLocation, int yLocation, const string& color) :
 		Rectangle("Square", xLocation, yLocation, color) {
 
@@ -28,15 +40,20 @@ Square::~Square() {
 	// TODO Auto-generated destructor stub
 }
 
+/**
+ * Prints out the details of the square.
+ * @return
+ * 		A vector containing the details of the shape.
+ */
 vector<string> Square::PrintShape() {
 
-	vector<string> squareString = Shape::PrintShape();
+	vector<string> squareVector = Shape::PrintShape();
 
 	int side = Rectangle::getWidth();
 
-	squareString.push_back("Length: " + Shape::intToString(side));
+	squareVector.push_back("Length: " + Shape::IntToString(side));
 
-	return squareString;
+	return squareVector;
 }
 
 } /* namespace shapes */
