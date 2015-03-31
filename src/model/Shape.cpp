@@ -15,7 +15,6 @@
 #include <string>
 #include <sstream>
 
-using std::endl;
 
 namespace model {
 

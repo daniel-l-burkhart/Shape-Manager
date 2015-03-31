@@ -69,9 +69,8 @@ void ShapeManagerUserInterface::MenuSystem() {
 
 	int numberOfShapes;
 
-	cout << endl
-			<< "Please enter the number of shapes that you would like to generate"
-			<< endl << ">";
+	cout << endl << "Please enter the number of shapes that you" << endl
+			<< "would like to generate" << endl << ">";
 
 	cin >> numberOfShapes;
 	while (std::cin.fail()) {

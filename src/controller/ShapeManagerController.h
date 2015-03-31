@@ -8,9 +8,10 @@
 #ifndef CONTROLLER_SHAPEMANAGERCONTROLLER_H_
 #define CONTROLLER_SHAPEMANAGERCONTROLLER_H_
 #include "ShapeCollection.h"
-
 #include "Shape.h"
+
 #include <vector>
+
 using model::Shape;
 using model::ShapeCollection;
 
