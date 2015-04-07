@@ -6,11 +6,11 @@
  */
 
 #include "Square.h"
+#include "Shape.h"
+#include "Rectangle.h"
+
 #include <cstdlib>
 
-#include "Shape.h"
-
-#include "Rectangle.h"
 namespace model {
 
 /**
@@ -36,8 +36,11 @@ Square::Square(int xLocation, int yLocation, const string& color) :
 	Shape::setPerimeter(Rectangle::ComputePerimeter());
 }
 
+/**
+ * Destructor of the shape object.
+ */
 Square::~Square() {
-	// TODO Auto-generated destructor stub
+
 }
 
 /**

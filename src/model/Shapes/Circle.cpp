@@ -6,8 +6,8 @@
  */
 
 #include "Circle.h"
-
 #include "Shape.h"
+
 #define _USE_MATH_DEFINES
 
 #include <cmath>
@@ -15,20 +15,18 @@
 
 namespace model {
 
-const int DIAMETER_MAX = 26;
-const int DIAMETER_MIN = 14;
+const int DIAMETER_MAX = 25;
+const int DIAMETER_MIN = 15;
 
 /**
  * The default constructor of the class.
  */
 Circle::Circle() {
-
 	this->diameter = 0;
-
 }
 
 /**
- * The constructor that makes a new shape.
+ * The constructor that makes a new circle.
  * @param xLocation
  * 		The X-Location.
  * @param yLocation
@@ -53,9 +51,9 @@ Circle::Circle(int xLocation, int yLocation, const string& color) :
  * 		The area of the circle.
  */
 double Circle::ComputeArea() {
-	double radius = this->diameter / 2;
+	double radius = this->diameter / 2.0;
 
-	return (M_PI * radius * radius);
+	return (M_PI * (radius * radius));
 }
 
 /**
@@ -68,7 +66,7 @@ double Circle::ComputePerimeter() {
 }
 
 Circle::~Circle() {
-	// TODO Auto-generated destructor stub
+
 }
 
 /**

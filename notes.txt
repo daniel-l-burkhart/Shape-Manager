@@ -1,1 +1,3 @@
 Notes of Shape Manager project.
+
+No known bugs or issues as this time.

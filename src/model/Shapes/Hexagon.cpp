@@ -13,7 +13,6 @@
 
 namespace model {
 
-
 const int LENGTH_MAX = 16;
 const int LENGTH_MIN = 4;
 
@@ -61,8 +60,8 @@ Hexagon::~Hexagon() {
  * 		The area of the hexagon.
  */
 double Hexagon::ComputeArea() {
-	double area = (AREA_LITERAL * sqrt(AREA_LITERAL) * this->length
-			* this->length) / 2;
+	double area = (AREA_LITERAL * sqrt(AREA_LITERAL)
+			* (this->length * this->length)) / 2;
 	return area;
 }
 
@@ -90,7 +89,5 @@ vector<string> Hexagon::PrintShape() {
 
 	return hexagonVector;
 }
-
-
 
 } /* namespace shapes */

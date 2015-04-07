@@ -26,7 +26,7 @@ public:
 	virtual ~ShapeManagerUserInterface();
 	void MenuSystem();
 	void GenerateShapeList(int randomShapes);
-	void GenerateShapesCommandLine(string inputString);
+	void GenerateShapesCommandLine(const string& inputString);
 	void PrintShapeList();
 
 };

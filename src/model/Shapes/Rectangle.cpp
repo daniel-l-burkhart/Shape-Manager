@@ -11,10 +11,14 @@
 #include "Shape.h"
 namespace model {
 
-const int HEIGHT_MAX = 21;
-const int WIDTH_MAX = 21;
-const int WIDTH_MIN = 9;
-const int HEIGHT_MIN = 9;
+const int HEIGHT_MAX = 20;
+const int HEIGHT_MIN = 10;
+
+const int WIDTH_MAX = 20;
+const int WIDTH_MIN = 10;
+
+const int SQUARE_LENGTH_MAX = 35;
+const int SQAURE_LENGTH_MIN = 15;
 
 const int PERIMETER_LITERAL = 2;
 
@@ -69,10 +73,7 @@ Rectangle::Rectangle(const string& ID, int xLocation, int yLocation,
 		const string& color) :
 		Shape(ID, xLocation, yLocation, color) {
 
-	const int LENGTH_MAX = 36;
-	const int LENGTH_MIN = 14;
-
-	int side = Shape::GenerateRandomNumber(LENGTH_MIN, LENGTH_MAX);
+	int side = Shape::GenerateRandomNumber(SQAURE_LENGTH_MIN, SQUARE_LENGTH_MAX);
 
 	this->height = side;
 	this->width = side;

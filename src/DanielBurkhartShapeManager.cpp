@@ -1,9 +1,9 @@
 //============================================================================
 // Name        : DanielBurkhartShapeManager.cpp
 // Author      : Daniel Burkhart
-// Version     :
+// Version     : Spring 2015
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : TUI-Based Shape Manager in C++, Ansi-style
 //============================================================================
 
 #include <iostream>
@@ -25,7 +25,9 @@ using namespace std;
 int main(int argc, const char * argv[]) {
 
 	ShapeManagerUserInterface userInterface = ShapeManagerUserInterface();
+
 	cout << "Welcome to Daniel Burkhart's Shape Manager" << endl;
+
 	if (argc != 1) {
 
 		userInterface.GenerateShapesCommandLine(argv[1]);

@@ -34,7 +34,7 @@ ShapeCollection::ShapeCollection() {
 }
 
 /**
- *
+ *	Destructor of the collection class.
  */
 ShapeCollection::~ShapeCollection() {
 	this->clearList();
@@ -56,9 +56,9 @@ void ShapeCollection::InsertShape(Shape* currentShape) {
 void ShapeCollection::generateRandomValues() {
 
 	this->randomShape = this->GenerateRandomNumber(1, 5);
-	this->randXLocation = this->GenerateRandomNumber(-180, 180);
-	this->randYLocation = this->GenerateRandomNumber(-180, 180);
-	this->colorNumber = this->GenerateRandomNumber(1, 4);
+	this->randXLocation = this->GenerateRandomNumber(0, 100);
+	this->randYLocation = this->GenerateRandomNumber(0, 100);
+	this->colorNumber = this->GenerateRandomNumber(1, 5);
 
 }
 
@@ -98,14 +98,18 @@ void ShapeCollection::generateRandomColor() {
 		break;
 	}
 	case 2: {
-		this->randColor = "Blue";
+		this->randColor = "Green";
 		break;
 	}
 	case 3: {
-		this->randColor = "Yellow";
+		this->randColor = "Blue";
 		break;
 	}
 	case 4: {
+		this->randColor = "Yellow";
+		break;
+	}
+	case 5: {
 		this->randColor = "Purple";
 		break;
 	}
@@ -173,9 +177,8 @@ const vector<Shape*>& ShapeCollection::getShapes() const {
  * 		The number of shapes.
  */
 void ShapeCollection::CreateShapeList(int numberOfShapes) {
-	this->clearList();
 
-	srand((int) time(0));
+	this->clearList();
 
 	for (int i = 0; i < numberOfShapes; i++) {
 

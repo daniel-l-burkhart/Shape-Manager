@@ -6,20 +6,23 @@
  */
 
 #include "Triangle.h"
+#include "Shape.h"
+#include <cmath>
+
+#include <iosfwd>
+#include <sstream>
 #include <cstdlib>
 #include <iostream>
 
-#include "Shape.h"
-#include <iosfwd>
-#include <sstream>
-
 namespace model {
 
-const int BASE_MAX = 31;
-const int BASE_MIN = 19;
+const int BASE_MAX = 30;
+const int BASE_MIN = 20;
 
-const int HEIGHT_MAX = 31;
-const int HEIGHT_MIN = 19;
+const int HEIGHT_MAX = 30;
+const int HEIGHT_MIN = 20;
+
+const int AREA_LITERAL = 2;
 
 /**
  * The default constructor.
@@ -59,7 +62,7 @@ Triangle::Triangle(int xLocation, int yLocation, const string& color) :
  */
 double Triangle::ComputeArea() {
 	double triangle = this->base * this->height;
-	return (triangle / 2);
+	return (triangle / AREA_LITERAL);
 
 }
 
@@ -69,7 +72,8 @@ double Triangle::ComputeArea() {
  * 		The perimeter of the triangle.
  */
 double Triangle::ComputePerimeter() {
-	return this->base + this->height;
+	double radicand = ((this->base*this->base) + 4*(this->height*this->height));
+	return this->base + sqrt(radicand);
 }
 
 /**

@@ -28,13 +28,14 @@ ShapeManagerUserInterface::ShapeManagerUserInterface() {
  * The destructor of the class.
  */
 ShapeManagerUserInterface::~ShapeManagerUserInterface() {
-	// TODO Auto-generated destructor stub
+
 }
 
 /**
  * Prompts the user if the menu system should repeat.
  */
 void ShapeManagerUserInterface::repeatMenuSystem() {
+
 	string response;
 
 	cout << endl << "Press 'S' to generate more shapes or 'Q' to quit." << endl
@@ -42,7 +43,8 @@ void ShapeManagerUserInterface::repeatMenuSystem() {
 	cin >> response;
 
 	while (response.length() > 1) {
-		cout << "I'm sorry. That input is invalid. Please try again." << endl;
+		cout << endl << "I'm sorry. That input is invalid. Please try again."
+				<< endl;
 		this->repeatMenuSystem();
 	}
 	char selection = response[0];
@@ -73,7 +75,7 @@ void ShapeManagerUserInterface::MenuSystem() {
 			<< "would like to generate" << endl << ">";
 
 	cin >> numberOfShapes;
-	while (std::cin.fail()) {
+	while (std::cin.fail() || numberOfShapes < 0) {
 		cin.clear();
 		cin.ignore();
 		cout << "Please enter a valid number." << endl;
@@ -81,6 +83,7 @@ void ShapeManagerUserInterface::MenuSystem() {
 	}
 
 	this->GenerateShapeList(numberOfShapes);
+
 	this->PrintShapeList();
 
 	this->repeatMenuSystem();
@@ -112,7 +115,8 @@ void ShapeManagerUserInterface::printOutDetails(vector<string> currentShape) {
  * @param inputString
  * 		The string argument passed into the
  */
-void ShapeManagerUserInterface::GenerateShapesCommandLine(string inputString) {
+void ShapeManagerUserInterface::GenerateShapesCommandLine(
+		const string& inputString) {
 	char inputChar = inputString[0];
 	double input = atof(&inputChar);
 	int number = input;
